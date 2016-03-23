@@ -1,0 +1,79 @@
+-git教程
+ -http://www.liaoxuefeng.com
+ -
+ -http://blog.jobbole.com/78960/
+ -
+ -注册 github账号  
+ -https://github.com/
+ -angela86xl
+ -youyou365@126.com	
+ -19861210xl
+ -
+ - 使用IDEA+Maven+Git快速开发Java web应用 
+ -http://blog.csdn.net/benjamin_whx/article/details/45010917
+ -IDE 使用
+ -http://blog.csdn.net/benjamin_whx/article/details/45011169
+ -http://blog.csdn.net/luckyyulin/article/details/21090905
+ -http://blog.csdn.net/god_wot/article/details/10522405
+ -ssh-keygen -t rsa -C "youyou365@126.com"
+ -一直enter
+ -
+ -ssh -T git@github.com 查看是否与 github 建立连接
+ -
+ -git clone https://github.com/angela86xl/test
+ -
+ -git remote rm origin
+ -git remote add origin git@github.com:angela86xl/test.git //连接远程github项目  
+ -
+ -
+ -     使用git在本地创建一个项目的过程
+ -
+ -    $ makdir ~/hello-world    //创建一个项目hello-world
+ -    $ cd ~/hello-world       //打开这个项目
+ -    $ git init             //初始化 
+ -    $ touch README
+ -    $ git add README        //更新README文件
+ -    $ git commit -m 'first commit'     //提交更新，并注释信息“first commit”
+ -    $ git remote add origin git@github.com:angela86xl/test.git    //连接远程github项目  
+ -    $ git push -u origin master     //将本地项目更新到github项目上去
+
+
+mac 连接github
+本地的git仓库和Github服务器之间是通过ssh加密的。
+ssh -v   明显Mac已经安装了ssh
+1:创建SSH Key
+ssh-keygen -t rsa -C youyou365@126.com(你的Github登陆名)
+找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对
+
+2:在Github设置ssh key
+itle:可以顺便填名字
+key:在Key文本框里粘贴id_rsa.pub文件的内容
+
+3:测试本地是否和Github连接上
+ssh -T git@github.com
+第一次链接Github，会有一个确认,输入yes回车即可。
+
+4:使用git在本地建立的项目更新到Github
+首先在本地初始化一个git仓库
+由于之前没有配置用户名，所以首次commit会有提示，自动建立
+mkdir hellogithub
+cd hellogithub   git init   ls -ah会显示 .git
+touch newfile
+git add newfile
+git commit -m 'first commit'
+
+为了把本地库推到远程服务器，首先需要在Github上面也建一个项目
+在Repository name填上我们的项目名字，description随便填，别的默认。然后会生成项目
+git remote add origin git@github.com:angela86xl/hellogithub.git
+git push -u origin master
+
+   $ touch README
+ -    $ git add README        //更新README文件
+ -    $ git commit -m 'first commit'     //提交更新，并注释信息“first commit”
+ -    $ git remote add origin git@github.com:angela86xl/test.git    //连接远程github项目  
+ -    $ git push -u origin master     //将本地项目更新到github项目上去
+
+从github 拉取代码
+新建文件夹
+git init 
+git pull git@github.com:angela86xl/hellogithub.git
